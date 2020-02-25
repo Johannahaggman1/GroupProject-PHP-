@@ -3,8 +3,7 @@
     include("../Includes/database_connections.php");
 ?>
 
-
-<form method="POST" action="../Includes/functions.php">
+<form method="POST" action="../Includes/login_functions.php">
 
 <b>Användarnamn:</b><br />
 <input type="text" name="username" placeholder="Användarnamn"><br />
@@ -16,4 +15,5 @@
 </form>
 
 <?php 
-
+echo (isset($_GET['err']) && $_GET['err'] == true ? "Något gick fel! Försök Igen!" : "");
+?>

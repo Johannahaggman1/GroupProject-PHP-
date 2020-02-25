@@ -3,14 +3,9 @@
 
 include("database_connections.php");
 
-function row($val){
-    echo '<pre>';
-    print_r($val);
-    echo '</pre>';
-}
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 
 $query = "SELECT id, username, password, email, role FROM users where username = '$username' AND password ='$password'";
 
@@ -18,7 +13,7 @@ $return = $dbh->query($query);
 $row = $return->fetch(PDO::FETCH_ASSOC);
 
 if(empty($row)){
-    header("location:../index.php?err=true");
+    header("location:../views/login.php?err=true");
 }
     else{
         session_start();
