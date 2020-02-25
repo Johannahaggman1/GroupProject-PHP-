@@ -22,7 +22,7 @@ if(empty($row)){
         $_SESSION['password'] =$row['password'];
         $_SESSION['email'] =$row['email'];
         $_SESSION['role'] =$row['role'];
-        header("location:../index.php?login=true");
+        header("location:../index.php");
     }
 
 

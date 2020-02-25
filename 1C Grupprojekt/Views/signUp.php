@@ -1,9 +1,3 @@
-<?php
-
-    include("../Includes/database_connections.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +10,13 @@
     <center>
     <h1>Registrera</h1>
     
-    <form method="POST" action="../includes/signup_functions.php">
+    <form method="POST" action="Includes/signup_functions.php">
         Användarnamn:<br>
-        <input type="text" name="username" placeholder="Skapa användarnamn...">
+        <input type="text" name="username" placeholder="Skapa användarnamn..." required>
         <br>Lösenord:<br>
-        <input type="password" name="password" placeholder="Skapa Lösenord...">
+        <input type="password" name="password" placeholder="Skapa Lösenord..." required>
         <br>Mailadress:<br>
-        <input type="text" name="email" placeholder="Skriv din mail...">
+        <input type="text" name="email" placeholder="Skriv din mail..." required>
         <br>
         <button type="submit" name="submit">Skapa</button>
     </form>
