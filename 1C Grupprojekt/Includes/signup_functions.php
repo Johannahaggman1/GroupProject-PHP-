@@ -19,6 +19,11 @@ $result_email = count($query_check_email->fetchAll());
             echo "AJABAJA! Endast ett konto per mail, Försök igen!<br />";
             echo "<a href='../Views/signup.php' >Tillbaka</a>";
          }
+         if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $emailErr = "fel email format";
+            echo "fuck you bish!";
+            echo "<a href='../Views/signup.php' >Tillbaka</a>";
+        }
          
          else {
             $query = "INSERT INTO users(username, password, email) VALUES('$username', '$password', '$email');";
