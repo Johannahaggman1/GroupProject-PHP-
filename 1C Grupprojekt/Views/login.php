@@ -3,6 +3,7 @@
     include("../Includes/database_connections.php");
 ?>
 
+
 <form method="POST" action="../Includes/functions.php">
 
 <b>Användarnamn:</b><br />
