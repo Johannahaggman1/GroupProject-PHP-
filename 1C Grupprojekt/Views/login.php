@@ -15,4 +15,5 @@
 </form>
 
 <?php 
-
+echo (isset($_GET['err']) && $_GET['err'] == true ? "Något gick fel! Försök Igen!" : "");
+?>

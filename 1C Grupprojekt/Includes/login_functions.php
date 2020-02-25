@@ -13,7 +13,7 @@ $return = $dbh->query($query);
 $row = $return->fetch(PDO::FETCH_ASSOC);
 
 if(empty($row)){
-    header("location:../index.php?err=true");
+    header("location:../views/login.php?err=true");
 }
     else{
         session_start();
