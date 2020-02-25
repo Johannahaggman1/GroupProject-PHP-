@@ -2,7 +2,8 @@
 session_start();
 echo (isset($_SESSION['username']) ? "Inloggad som: " . $_SESSION['username'] : '');
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
-    echo "<center>Du är admin!!</center>";  
+    echo "<center>Du är admin!!</center>";
+    echo "<center><a href='Views/writepost.php'>Skirv Inlägg</a></center>"  ;
 
 
 }

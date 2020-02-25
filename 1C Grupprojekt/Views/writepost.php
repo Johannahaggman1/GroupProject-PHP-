@@ -16,7 +16,7 @@
     <textarea name="description" cols="60" rows="10" required> Skriv ditt inlägg här..</textarea><br />
     <br />
     <b>Bifoga bild:</b><br />
-    <input type="file" name="fileToUpload" id="fileToUpload"><br />
+    <input type="file" name="image" id="fileToUpload"><br />
     <br />
     <input type="submit" value="Publicera" />
     <br />
