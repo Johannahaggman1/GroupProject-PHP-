@@ -1,5 +1,5 @@
 <?php
-include("../Includes/database_connections.php");
+include("database_connections.php");
 
 
 $username = $_POST['username'];
@@ -13,16 +13,16 @@ $result_username = count($query_check_username->fetchAll());
 $result_email = count($query_check_email->fetchAll());
         if ($result_username > 0){
             echo "AJABAJA! Användarnamnet är redan taget, Försök igen!<br />";
-            echo "<a href='../Views/signup.php' >Tillbaka</a>";
+            echo "<a href='../index.php?page=signup' >Tillbaka</a>";
          } 
          else if ($result_email > 0){
             echo "AJABAJA! Endast ett konto per mail, Försök igen!<br />";
-            echo "<a href='../Views/signup.php' >Tillbaka</a>";
+            echo "<a href='../index.php?page=signup' >Tillbaka</a>";
          }
-         if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+         else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $emailErr = "fel email format";
             echo "fuck you bish!";
-            echo "<a href='../Views/signup.php' >Tillbaka</a>";
+            echo "<a href='../index.php?page=signup' >Tillbaka</a>";
         }
          
          else {
@@ -33,7 +33,7 @@ $result_email = count($query_check_email->fetchAll());
 
             print_r($dbh->errorInfo());
             } else{
-            header("location:../index.php?created=true");
+            header("location:../index.php?page=home");
                 }
          }
 ?>
