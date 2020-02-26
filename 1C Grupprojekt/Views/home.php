@@ -23,7 +23,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
 
     
 ?>
-    <center><h1>BLOGGEN</h1></center>
+    <center><marquee behavior="spin" direction="right"><h1>BLOGGEN</h1></marquee></center>
     
     <?php
     include('Views/show_posts.php');

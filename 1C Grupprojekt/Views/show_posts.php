@@ -1,6 +1,5 @@
 
     <?php
-
  
     $order = 'desc';
     
@@ -14,6 +13,7 @@
         $query_username = "SELECT users.username FROM users JOIN posts ON posts.userID = users.id WHERE posts.id = $post_id";
         $return_username = $dbh->query($query_username);
         $row_username = $return_username->fetch(PDO::FETCH_ASSOC);
+        $query_comments_amount ="SELECT posts.id, COUNT(posts.id) FROM posts JOIN comments on comments.postID = posts.id GROUP BY posts.id"
 
 
         echo "<center>";
@@ -22,9 +22,18 @@
             echo "Kategori: " . $row['category'] . "<br />";
             echo $row['description'] . "<br />";
             echo $row['image'] . "<br />";
-            echo $row['date'] . "<hr />";
+            echo $row['date'];
             echo "</center>";
+
+            echo "<a href='index.php?post=$post_id&showcomments=true'>Kommentarer</a><hr />";
+
+            if(isset($_GET['showcomments']) && $_GET['showcomments'] == 'true'){
+                echo "Hej";
+                
+            }
     }
+
+    
 
     $query_blogposts = "SELECT id, userID, title, description, category, image, date FROM posts ORDER BY date $order";
     $rows_posts = $dbh->query($query_blogposts);
