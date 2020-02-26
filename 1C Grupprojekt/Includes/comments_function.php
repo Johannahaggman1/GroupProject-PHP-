@@ -1,14 +1,11 @@
 <?php
 
-include("database_connections.php")
-
-
 
 class GBpost{
 
     private $data_base_handler;
     private $order = 'desc';
-    private $posts;
+    private $comments;
 
     public function __construct($dbh){
 
@@ -16,19 +13,20 @@ class GBpost{
 
     }
 
-    public function fetchAll(){
-        $query = "SELECT id, content, date, postID, userID FROM comments ORDER BY date_posted $this->order";
-       
+    public function fetchAll($post_id){
+    
+        $query = "SELECT comments.id, content, date, postID, userID, users.username FROM comments JOIN users ON users.id = comments.userID WHERE postID = $post_id ORDER BY date $this->order ";
+        
         $return_array = $this->data_base_handler->query($query);
         $return_array = $return_array->fetchAll(PDO::FETCH_ASSOC);
         
-        $this->posts = $return_array;
+        $this->comments = $return_array;
         
     }
 
     public function getPosts(){
 
-        return $this->posts;
+        return $this->comments;
 
     }
 

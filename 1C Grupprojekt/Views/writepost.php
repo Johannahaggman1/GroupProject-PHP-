@@ -9,8 +9,8 @@
     echo "<input type='text' name='title' required><br />";
     echo "<br />";
     echo "<b> Kategori: </b> <br />";
-    echo "<select name='category' id='category'>";
-    echo "<option value='Välj'>Välj Kategori..</option>";
+    echo "<select name='category' id='category' required>";
+    echo "<option value='' disabled selected>Välj Kategori</option>";
     echo "<option value='Ideer'>Företaget</option>";
     echo "<option value='Nyheter'>Nyheter</option>";
     echo "<option value='Produkter'>Produkter</option>";
