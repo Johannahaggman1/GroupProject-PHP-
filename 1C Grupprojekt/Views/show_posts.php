@@ -23,12 +23,13 @@
 
             echo "<center>";
             echo "<h4>" . $row['title'] . "</h4>";
-            echo "Författare: " . $row_username['username'] . "<br />";
+            echo "lotta: " . $row_username['username'] . "<br />";
             echo "Kategori: " . $row['category'] . "<br />";
             echo $row['description'] . "<br />";
             echo $row['image'] . "<br />";
             echo $row['date'];
             echo "</center>";
+            echo "<button><a href='index.php?page=editpost&post=" . $post_id . "'> inlägg</a></button>'";
 
             
             if (isset($_GET['showcomments']) && $_GET['showcomments'] == 'true'){
@@ -71,9 +72,9 @@
     if(isset($_GET['post']) == true){
     while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
         echo "<center>";
-        echo '<a href="index.php">' . $row['title'] . "</a><br />";
+        echo '<a href="index.php?post='.$row["id"].'">' . $row['title'] . "</a><br />";
         echo "</center>";
-        }
+        }     
     } else {
         while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
             echo "<center>";
