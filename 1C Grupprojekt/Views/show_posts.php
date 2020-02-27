@@ -27,10 +27,18 @@
             echo "Kategori: " . $row['category'] . "<br />";
             echo $row['description'] . "<br />";
             echo $row['image'] . "<br />";
+<<<<<<< HEAD
             echo $row['date'];
             echo "</center>";
             echo "<button><a href='index.php?page=editpost&post=" . $post_id . "'> inlägg</a></button>'";
+=======
+            echo $row['date'] . "<br />";
+>>>>>>> 97566b17eccc7a8c031694115529a89e2bb9d238
 
+            if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
+            echo "<button>Redigera Inlägg</button>";}
+            echo "</center>";
+            
             
             if (isset($_GET['showcomments']) && $_GET['showcomments'] == 'true'){
                 echo "<a href='index.php?post=$post_id'>". $sth_comments_amount->rowCount() . " Kommentarer</a><hr />";
@@ -50,7 +58,11 @@
                 foreach($comments->getPosts() as $comments){
                 echo "<b>Användare: </b>" .  $comments['username'] . "<br />";
                 echo $comments['content'] . "<br />";
-                echo $comments['date'] . "<br /><br />";
+                echo $comments['date'] . "<br />";
+                
+                if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
+                    echo "<a href='Includes/delete_comment.php?post=" . $post_id . "&id=" . $comments['id'] . "'>Ta Bort</a><br />";
+                }
 
                 }
 
@@ -69,6 +81,7 @@
     $rows_posts = $dbh->query($query_blogposts);
     
 
+<<<<<<< HEAD
     if(isset($_GET['post']) == true){
     while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
         echo "<center>";
@@ -76,11 +89,13 @@
         echo "</center>";
         }     
     } else {
+=======
+>>>>>>> 97566b17eccc7a8c031694115529a89e2bb9d238
         while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
             echo "<center>";
             echo '<a href="index.php?post='.$row["id"].'">' . $row['title'] . "</a><br />";
             echo "</center>";
-        }
+        
     }
 
     ?>
