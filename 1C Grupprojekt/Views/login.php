@@ -13,6 +13,8 @@
 
 </form>
 
+<button><a href="index.php">HELVETE! fel knapp</a></button>
+
 <?php 
 echo (isset($_GET['err']) && $_GET['err'] == true ? "Något gick fel! Försök Igen!" : "");
 ?>
