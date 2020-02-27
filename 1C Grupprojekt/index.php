@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST" action="signUp.php">
-    <button type="submit">Sign up!</button>
-    </form>
+<?php
+include('Includes/database_connections.php');
 
-    <?php
-        print($_POST['submit']);
-    ?>
-</body>
-</html>
+$page = (isset($_GET['page']) ? $_GET['page'] : '');
+
+
+if($page == "login"){
+    include("Views/login.php");
+}
+
+if(!$page){
+    include("Views/home.php");
+}
+
+if($page == "signup"){
+    include("Views/signUp.php");
+}
+
+if($page == "home"){
+    include("Views/home.php");
+}
+
+if($page == "writepost" && isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
+    include("Views/writepost.php");
+}
+
+echo (isset($_GET['login']) && $_GET['login'] == true ? "<center><a href='Includes/logout_functions.php'>Logga Ut</a></center>" : "");
+
+?>
+
