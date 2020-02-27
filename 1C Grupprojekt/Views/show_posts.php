@@ -6,16 +6,16 @@
     
 
     if (isset($_GET['post'])){
-
+        //Blog Post
         $post_id = $_GET['post'];
         $query_post_data = "SELECT id, userID, title, description, category, image, date FROM posts WHERE id = $post_id";
         $return = $dbh->query($query_post_data);
         $row = $return->fetch(PDO::FETCH_ASSOC);
-
+        //Blog Post Writer
         $query_username = "SELECT users.username FROM users JOIN posts ON posts.userID = users.id WHERE posts.id = $post_id";
         $return_username = $dbh->query($query_username);
         $row_username = $return_username->fetch(PDO::FETCH_ASSOC);
-
+        //Blogg Comment
         $query_comments_amount = "SELECT id FROM comments WHERE postID=:post_id";
         $sth_comments_amount = $dbh->prepare($query_comments_amount);         
         $sth_comments_amount->bindParam(':post_id', $post_id);
@@ -68,13 +68,19 @@
     $rows_posts = $dbh->query($query_blogposts);
     
 
-    
-    while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
-        echo "<center>";
-        echo '<a href="index.php?post='.$row["id"].'">' . $row['title'] . "</a><br />";
-        echo "</center>";
-        
-    }
+    if(isset($_GET['post']) == true){
+        while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
+            echo "<center>";
+            echo '<a href="index.php">' . $row['title'] . "</a><br />";
+            echo "</center>";
+            }
+        } else {
+            while($row = $rows_posts->fetch(PDO::FETCH_ASSOC)){
+                echo "<center>";
+                echo '<a href="index.php?post='.$row["id"].'">' . $row['title'] . "</a><br />";
+                echo "</center>";
+            }
+        }
     
 
     ?>
