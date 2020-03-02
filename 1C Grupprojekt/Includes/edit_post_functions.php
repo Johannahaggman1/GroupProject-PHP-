@@ -1,6 +1,6 @@
 <?php
     include('database_connections.php');
-    include('../Views/edit_post.php');
+    //include('../Views/edit_post.php');
 
     session_start();
 
@@ -12,7 +12,8 @@ $userID = $_SESSION['id'];
 
 //$post_id = $_POST['post'];
 
-$edit_post_query = "UPDATE posts SET title='$_POST[title]', description='$_POST[description]' WHERE id = $post_id";
+    // update 
+$edit_post_query = "UPDATE posts SET title='$_POST[title]', description='$_POST[description]', image='$_POST[image]';";
 $return = $dbh->exec($edit_post_query);
 
 if (!$return) {
