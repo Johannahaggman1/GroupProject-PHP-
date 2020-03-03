@@ -11,7 +11,7 @@
     $return_edit_post = $dbh->query($update_post_query);
     $row_edit_post = $return_edit_post->fetch(PDO::FETCH_ASSOC);
 
-    echo "<form method='POST' action='Includes/edit_post_functions.php'";
+    echo "<form method='POST' action='Includes/edit_post_functions.php?post=$post_id'>";
     echo "<b>Titel:</b><br />";
     echo "<input type='text' name='title' value='" . $row_edit_post['title'] ."' required><br />";
     echo "<br />";

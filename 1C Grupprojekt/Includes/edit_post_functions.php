@@ -8,13 +8,16 @@ $title = $_POST['title'];
 $category = $_POST['category'];
 $description = $_POST['description'];
 $image = $_POST['image'];
-$userID = $_SESSION['id'];
+//$userID = $_SESSION['id'];
 
-//$post_id = $_POST['post'];
+$post_id = $_GET['post'];
 
     // update 
-$edit_post_query = "UPDATE posts SET title='$_POST[title]', description='$_POST[description]', image='$_POST[image]';";
+$edit_post_query = "UPDATE posts SET title='$title', category='$category', 
+description='$description', image='$image' WHERE id = $post_id";
 $return = $dbh->exec($edit_post_query);
+//die;
+
 
 if (!$return) {
     print_r($dbh->errorInfo());
