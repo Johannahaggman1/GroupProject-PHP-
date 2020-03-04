@@ -29,7 +29,18 @@
             echo $row['image'] . "<br />";
             echo $row['date'];
             echo "</center>";
-            echo "<button><a href='index.php?page=editpost&post=" . $post_id . "'>Redigera inlägg</a></button>'";
+            echo "<button><a href='index.php?page=editpost&post=" . $post_id . "'>Redigera inlägg</a></button>";
+            echo "</br>";
+            echo "<button><a href='Includes/delete_post.php?post=" . $post_id . "'>Ta bort inlägg</a></button>";
+            echo "</br>";
+
+            /*$postDeleted = new GBPost($dbh);
+
+            $postDeleted->fetchAll($post_id);
+
+            if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
+                echo "<a href='Includes/delete_post.php?post=" . $post_id . "&id=" . $postDeleted['id'] . ">Ta bort inlägg</a><br />";
+            }
 
             /*if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
             echo "<button>Redigera Inlägg</button>";}
@@ -69,6 +80,7 @@
                     echo "Logga in för att kommentera!";
                 }
             }
+            
     }
 
     
