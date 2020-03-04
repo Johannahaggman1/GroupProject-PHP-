@@ -12,10 +12,6 @@ if(!$page){
     include("Views/home.php");
 }
 
-if($page == "editpost"){
-    include("Views/edit_post.php");
-}
-
 if($page == "signup"){
     include("Views/signUp.php");
 }

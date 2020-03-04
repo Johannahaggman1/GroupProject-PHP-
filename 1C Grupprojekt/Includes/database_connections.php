@@ -17,4 +17,7 @@
         die;
     }
 
+    // Hur han på videon skrev: (kan kanske radera senare el använda) 
+   //$conn = mysqli_connect("localhost", "root", "", "posts");
+
 ?>
