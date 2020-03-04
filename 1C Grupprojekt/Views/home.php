@@ -36,6 +36,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
     <form method="POST" action="index.php?page=signup">
     <button type="submit">Registrera</button>
     </form>
+
+    <?php
+    if (isset($_GET['registered']) && $_GET['registered'] == 'true'){
+        echo "Du är nu registrerad!";
+    }
+    ?>
     
 
 <a href=""></a>

@@ -25,5 +25,4 @@ if(empty($row)){
         header("location:../index.php");
     }
 
-
 ?>

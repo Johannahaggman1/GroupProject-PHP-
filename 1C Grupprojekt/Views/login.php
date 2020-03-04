@@ -10,8 +10,11 @@
 <input type="password" name="password" placeholder="Lösenord" required><br />
 <br />
 <input type="submit" name="login" value="Logga in">
-
+<br>
 </form>
+
+<button><a href="index.php">HELVETE! fel knapp</a></button>
+
 
 <?php 
 echo (isset($_GET['err']) && $_GET['err'] == true ? "Något gick fel! Försök Igen!" : "");
