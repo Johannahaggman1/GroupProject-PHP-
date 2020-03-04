@@ -1,10 +1,10 @@
-    <?php
+<?php
     session_start();
 
     if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
     
     
-    echo "<form method='POST' action='../Includes/writepost_functions.php'>";
+    echo "<form method='POST' action='../Includes/writepost_functions.php' enctype='multipart/form-data'>";
     echo "<b>Titel:</b><br />";
     echo "<input type='text' name='title' required><br />";
     echo "<br />";
@@ -22,9 +22,9 @@
     echo "<textarea name='description' cols='60' rows='10' placeholder='Skriv ditt inlägg här..' required></textarea><br />";
     echo "<br />";
     echo "<b>Bifoga bild:</b><br />";
-    echo "<input type='file' name='image' id='fileToUpload'><br />";
+    echo "<input type='file' name='file' id='fileToUpload'><br />";
     echo "<br />";
-    echo "<input type='submit' value='Publicera' />";
+    echo "<input type='submit' name='submit' value='Publicera' />";
     echo "<br />";
     echo "</form>";
 }

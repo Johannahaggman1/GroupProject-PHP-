@@ -29,9 +29,9 @@
             echo "<img src='uploads/" . $row['image'] . "'><br />";
             echo $row['date'];
             echo "</center>";
-            echo "<button><a href='index.php?page=editpost&post=" . $post_id . "'>Redigera inlägg</a></button>";
+            echo "<center><button><a href='index.php?page=editpost&post=" . $post_id . "'>Redigera inlägg</a></button></center>";
             echo "</br>";
-            echo "<button><a href='Includes/delete_post.php?post=" . $post_id . "'>Ta bort inlägg</a></button>";
+            echo "<center><button><a href='Includes/delete_post.php?post=" . $post_id . "'>Ta bort inlägg</a></button></center>";
             echo "</br>";
 
             /*$postDeleted = new GBPost($dbh);
