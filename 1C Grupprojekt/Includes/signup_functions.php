@@ -34,6 +34,7 @@ $result_email = count($query_check_email->fetchAll());
             print_r($dbh->errorInfo());
             } else{
             header("location:../index.php?registered=true");
+            
                 }
          }
 ?>
