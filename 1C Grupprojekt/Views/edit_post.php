@@ -1,15 +1,19 @@
 <?php
 
+    // startar sessionen(sparar data som skrivs in).
     session_start();
 
+    // hämtar all data i databasen
     if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
-
+    
     $post_id = $_GET['post'];
     $update_post_query = "SELECT id, userID, title, description, category, image, date FROM posts WHERE id = $post_id;";
     //$edit_post_query = "UPDATE posts SET title='$_POST[title]', description='$_POST[description]', WHERE id = $post_id;"; 
     $return_edit_post = $dbh->query($update_post_query);
     $row_edit_post = $return_edit_post->fetch(PDO::FETCH_ASSOC);
 
+    // skriver ut titel(titeln för posten som har givits), kategori(med "företaget","nyheter" osv)
+    // , description(textfält), knapp där man kan sicka in filer i.
     echo "<form method='POST' action='Includes/edit_post_functions.php?post=$post_id'>";
     echo "<b>Titel:</b><br />";
     echo "<input type='text' name='title' value='" . $row_edit_post['title'] ."' required><br />";
@@ -35,7 +39,7 @@
     echo "</form>";
 
     }
-
+    // annars kommer ett fel medelande att vissas.
     else{
     echo "ajabaja inga hackerattacker här inte!";
     }

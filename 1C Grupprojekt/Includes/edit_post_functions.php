@@ -12,15 +12,16 @@ $image = $_POST['image'];
 
 $post_id = $_GET['post'];
 
-    // update 
+    // updaterar/ändrar posts från databasen
 $edit_post_query = "UPDATE posts SET title='$title', category='$category', 
 description='$description', image='$image' WHERE id = $post_id";
 $return = $dbh->exec($edit_post_query);
 //die;
 
-
+// om return inte körs kommer ett error medelande komma up.
 if (!$return) {
     print_r($dbh->errorInfo());
+    // annars kommer den att skicka användaren vidare till index.php(start sidan).
 } else {
     header("location:../index.php?page=home");
 }

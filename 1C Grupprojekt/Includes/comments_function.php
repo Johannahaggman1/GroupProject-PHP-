@@ -1,6 +1,6 @@
 <?php
 
-
+// gör en class för comentarerna 
 class GBpost{
 
     private $data_base_handler;
@@ -14,7 +14,9 @@ class GBpost{
     }
 
     public function fetchAll($post_id){
-    
+
+        // en sql kod som tar allt från tabellen comments i databassen.. 
+        // ..som är joinad tillsamans med users tabbelen i databasen.
         $query = "SELECT comments.id, content, date, postID, userID, users.username FROM comments JOIN users ON users.id = comments.userID WHERE postID = $post_id ORDER BY date $this->order ";
         
         $return_array = $this->data_base_handler->query($query);
@@ -24,6 +26,7 @@ class GBpost{
         
     }
 
+    
     public function getPosts(){
 
         return $this->comments;
