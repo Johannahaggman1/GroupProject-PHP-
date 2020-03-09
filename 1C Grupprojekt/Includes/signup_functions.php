@@ -45,6 +45,7 @@ $result_email = count($sth_check_email->fetchAll());
             print_r($dbh->errorInfo());
             } else{
             header("location:../index.php?registered=true");
+            
                 }
          }
 ?>
