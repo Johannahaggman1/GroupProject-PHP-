@@ -37,7 +37,9 @@ session_start();
 
     ?>
 
-    
+    <?php
+        if (!isset($_SESSION['id'])){
+    ?>
     <form method="POST" action="index.php?page=login">
     <button type="submit">Logga In</button>
     </form>
@@ -45,6 +47,7 @@ session_start();
     <form method="POST" action="index.php?page=signup">
     <button type="submit">Registrera</button>
     </form>
+    <?php } ?>
 
     <?php
     if (isset($_GET['registered']) && $_GET['registered'] == 'true'){

@@ -12,14 +12,20 @@ $image = $_POST['image'];
 
 $post_id = $_GET['post'];
 
-    // updaterar/ändrar posts från databasen
-$edit_post_query = "UPDATE posts SET title='$title', category='$category', 
-description='$description', image='$image' WHERE id = $post_id";
-$return = $dbh->exec($edit_post_query);
+    // update 
+$edit_post_query = "UPDATE posts SET title=:title, category=:category, 
+description=:description, image=:image WHERE id = :post_id";
+$sth_update_post = $dbh->prepare($edit_post_query);
+$sth_update_post->bindParam(':title', $title);
+$sth_update_post->bindParam(':category', $category);
+$sth_update_post->bindParam(':description', $description);
+$sth_update_post->bindParam(':image', $image);
+$sth_update_post->bindParam(':post_id', $post_id);
+$return_update_post = $sth_update_post->execute();
 //die;
 
-// om return inte körs kommer ett error medelande komma up.
-if (!$return) {
+
+if (!$return_update_post) {
     print_r($dbh->errorInfo());
     // annars kommer den att skicka användaren vidare till index.php(start sidan).
 } else {

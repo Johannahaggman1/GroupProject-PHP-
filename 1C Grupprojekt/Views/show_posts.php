@@ -6,50 +6,43 @@
     
     // om post är satt...
     if (isset($_GET['post'])){
-        
-        // hämtar posten som har skrivits.
+        // Hämta post function
         $post_id = $_GET['post'];
-        $query_post_data = "SELECT id, userID, title, description, category, image, date FROM posts WHERE id = $post_id";
-        $return = $dbh->query($query_post_data);
-        $row = $return->fetch(PDO::FETCH_ASSOC);
-        
-        // hämtar användarnamnet som skrivits i inputen. 
-        $query_username = "SELECT users.username FROM users JOIN posts ON posts.userID = users.id WHERE posts.id = $post_id";
-        $return_username = $dbh->query($query_username);
-        $row_username = $return_username->fetch(PDO::FETCH_ASSOC);
+        $query_post_data = "SELECT id, userID, title, description, category, image, date FROM posts WHERE id = :post_id";
+        $sth_post_data = $dbh->prepare($query_post_data);
+        $sth_post_data->bindParam(':post_id', $post_id);
+        $return = $sth_post_data->execute();
+        $row = $sth_post_data->fetch(PDO::FETCH_ASSOC);
 
-        // start script för att skriva ut antalet kommentarer som finns på sidan.
+        //Hämta användare function
+        $query_username = "SELECT users.username FROM users JOIN posts ON posts.userID = users.id WHERE posts.id = :post_id";
+        $sth_username = $dbh->prepare($query_username);
+        $sth_username->bindParam(':post_id', $post_id);
+        $return_username = $sth_username->execute();
+        $row_username = $sth_username->fetch(PDO::FETCH_ASSOC);
+
+        //Hämta kommentarer funktion
         $query_comments_amount = "SELECT id FROM comments WHERE postID=:post_id";
         $sth_comments_amount = $dbh->prepare($query_comments_amount);         
         $sth_comments_amount->bindParam(':post_id', $post_id);
         $return_comments_amount = $sth_comments_amount->execute();
 
-        // det som kommer att skrivas ut på sidan 
+            //skriv ut post
             echo "<center>";
             echo "<h4>" . $row['title'] . "</h4>";
-            echo "lotta: " . $row_username['username'] . "<br />";
+            echo "Författare: " . $row_username['username'] . "<br />";
             echo "Kategori: " . $row['category'] . "<br />";
             echo $row['description'] . "<br />";
             echo "<img src='uploads/" . $row['image'] . "'><br />";
             echo $row['date'];
             echo "</center>";
+            if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
             echo "<center><button><a href='index.php?page=editpost&post=" . $post_id . "'>Redigera inlägg</a></button></center>";
             echo "</br>";
             echo "<center><button><a href='Includes/delete_post.php?post=" . $post_id . "'>Ta bort inlägg</a></button></center>";
             echo "</br>";
-
-            /*$postDeleted = new GBPost($dbh);
-
-            $postDeleted->fetchAll($post_id);
-
-            if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
-                echo "<a href='Includes/delete_post.php?post=" . $post_id . "&id=" . $postDeleted['id'] . ">Ta bort inlägg</a><br />";
             }
 
-            /*if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
-            echo "<button>Redigera Inlägg</button>";}
-            echo "</center>";
-            */
             
             // visar kommentarer samt döljer kommentarer on click. visar också allt som finns inuti showcomments.
             if (isset($_GET['showcomments']) && $_GET['showcomments'] == 'true'){
