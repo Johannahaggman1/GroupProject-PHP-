@@ -21,7 +21,7 @@
         <button type="submit" name="submit">Skapa</button>
     </form>
 
-    <button><a href="index.php">HELVETE! fel knapp</a></button>
+    <button><a href="index.php">Tillbaka</a></button>
 
     </center>
 

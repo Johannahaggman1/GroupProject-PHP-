@@ -9,7 +9,7 @@ $comment_id = $_GET['id'];
 
 $query = "DELETE from comments where id =:id";
 $sth = $dbh->prepare($query);
-$sth->bindParam(':id', $_GET['id']);
+$sth->bindParam(':id', $comment_id);
 $return = $sth->execute();
 
 if (!$return) {

@@ -7,10 +7,12 @@ include("database_connections.php");
 $username = $_POST['username'];
 $password = md5($_POST['password']);
 
-$query = "SELECT id, username, password, email, role FROM users where username = '$username' AND password ='$password'";
-
-$return = $dbh->query($query);
-$row = $return->fetch(PDO::FETCH_ASSOC);
+$query = "SELECT id, username, password, email, role FROM users where username = :username AND password = :password";
+$sth_login = $dbh->prepare($query);
+$sth_login->bindParam(':username', $username);
+$sth_login->bindParam(':password', $password);
+$return_login = $sth_login->execute();
+$row = $sth_login->fetch(PDO::FETCH_ASSOC);
 
 if(empty($row)){
     header("location:../views/login.php?err=true");

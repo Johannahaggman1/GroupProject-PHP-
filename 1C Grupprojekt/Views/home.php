@@ -29,13 +29,16 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
     include('Views/show_posts.php');
 
     ?>
-
+    <?php
+    if (!isset($_SESSION['id'])){
+    ?>
     <form method="POST" action="index.php?page=login">
     <button type="submit">Logga In</button>
     </form>
     <form method="POST" action="index.php?page=signup">
     <button type="submit">Registrera</button>
     </form>
+    <?php } ?>
 
     <?php
     if (isset($_GET['registered']) && $_GET['registered'] == 'true'){

@@ -6,10 +6,11 @@
     if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
 
     $post_id = $_GET['post'];
-    $update_post_query = "SELECT id, userID, title, description, category, image, date FROM posts WHERE id = $post_id;";
-    //$edit_post_query = "UPDATE posts SET title='$_POST[title]', description='$_POST[description]', WHERE id = $post_id;"; 
-    $return_edit_post = $dbh->query($update_post_query);
-    $row_edit_post = $return_edit_post->fetch(PDO::FETCH_ASSOC);
+    $update_post_query = "SELECT id, userID, title, description, category, image, date FROM posts WHERE id = :post_id;";
+    $sth_update_post = $dbh->prepare($update_post_query);
+    $sth_update_post->bindParam(':post_id', $post_id);
+    $return_update_post = $sth_update_post->execute();
+    $row_edit_post = $sth_update_post->fetch(PDO::FETCH_ASSOC);
 
     echo "<form method='POST' action='Includes/edit_post_functions.php?post=$post_id'>";
     echo "<b>Titel:</b><br />";

@@ -1,21 +1,25 @@
-<?php
+<? php
 include("database_connections.php");
-include("show_posts.php");
 
-$post_id = $_GET['post'];
+session_start();
 
-//$query_post = "DELETE * FROM posts WHERE id =:id";
-//$query_comment = "DELETE * FROM comments WHERE "
-$query = "DELETE FROM comments where postID = :post_id; DELETE FROM posts WHERE id = :post_id";
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+    $post_id = $_GET['post'];
 
-$sth = $dbh->prepare($query);
-$sth->bindParam(':post_id', $post_id);
-$return = $sth->execute();
+    //$query_post = "DELETE * FROM posts WHERE id =:id";
+    //$query_comment = "DELETE * FROM comments WHERE "
+    $query = "DELETE FROM comments where postID = :post_id; DELETE FROM posts WHERE id = :post_id";
 
-if (!$return) {
-    print_r($dbh->errorInfo());
+    $sth = $dbh - > prepare($query);
+    $sth - > bindParam(':post_id', $post_id);
+    $return = $sth - > execute();
+
+    if (!$return) {
+        print_r($dbh - > errorInfo());
+    } else {
+        header("location:../index.php");
+    }
 } else {
-    header("location:../index.php");
-}
-
+    echo "Försök inte! Din dumma hacker!";
+} 
 ?>
