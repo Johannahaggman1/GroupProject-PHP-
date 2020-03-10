@@ -50,6 +50,7 @@ session_start();
     <?php } ?>
 
     <?php
+    // registrering av användare är klar.
     if (isset($_GET['registered']) && $_GET['registered'] == 'true'){
         echo "Du är nu registrerad!";
     }

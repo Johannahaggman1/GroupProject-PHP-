@@ -3,17 +3,18 @@ include("database_connections.php");
 
 session_start();
 
-
- 
+ // variabler
  if (isset($_POST['submit'])) {
     $file = $_FILES['file']['name'];
-
+    
+    // post variabler för writepost
     $title = $_POST['title'];
     $category = $_POST['category'];
     $description = $_POST['description'];
     $image = $_POST['file'];
     $user_id = $_SESSION['id'];
 
+    // files variabler för file/img.
     $file_name = $_FILES['file']['name'];
     $file_tmp_name = $_FILES['file']['tmp_name'];
     $file_size = $_FILES['file']['size'];
@@ -27,7 +28,7 @@ session_start();
 
     
 
-
+    // lägger till file för posten samt gör en rad för ny post.
     if (in_array($file_actual_ext, $allowed)) {
         if ($file_error === 0) {
             if ($file_size < 1000000) {
