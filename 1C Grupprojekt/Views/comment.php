@@ -3,11 +3,13 @@ echo "Kommentara som: " . $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form method="POST" action="Includes/write_comment_functions.php">
         <input name="post_id" type="hidden" value='<?php echo $_GET['post'];?>'>
@@ -15,6 +17,7 @@ echo "Kommentara som: " . $_SESSION['username'];
         <br>
         <button name="submit">Skicka</button>
     </form>
-    
+
 </body>
+
 </html>

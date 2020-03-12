@@ -1,5 +1,4 @@
-
-    <?php
+<?php
     
     // gör en variabel med namnet order med värder desc(desending).
     $order = 'desc';

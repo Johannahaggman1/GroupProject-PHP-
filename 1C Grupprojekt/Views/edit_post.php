@@ -45,4 +45,3 @@
     echo "ajabaja inga hackerattacker här inte!";
     }
 ?>
-

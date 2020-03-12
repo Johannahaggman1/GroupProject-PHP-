@@ -35,4 +35,3 @@ if($page == "writepost" && isset($_SESSION['role']) && $_SESSION['role'] == 'adm
 echo (isset($_GET['login']) && $_GET['login'] == true ? "<center><a href='Includes/logout_functions.php'>Logga Ut</a></center>" : "");
 
 ?>
-
