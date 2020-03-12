@@ -35,6 +35,8 @@
     echo "<b>Bifoga bild:</b><br />";
     echo "<input type='file' name='file' id='fileToUpload'><br />";
     echo "<br />";
+    echo "<img src='uploads/" . $row_edit_post['image'] . "'><br />";
+    echo "<br />";
     echo "<input type='submit' name='submit' value='Publicera' />";
     echo "<br />";
     echo "</form>";
