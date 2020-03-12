@@ -15,7 +15,7 @@
 
     // skriver ut titel(titeln för posten som har givits), kategori(med "företaget","nyheter" osv)
     // , description(textfält), knapp där man kan sicka in filer i.
-    echo "<form method='POST' action='Includes/edit_post_functions.php?post=$post_id'>";
+    echo "<form method='POST' action='Includes/edit_post_functions.php?post=$post_id' enctype='multipart/form-data'>";
     echo "<b>Titel:</b><br />";
     echo "<input type='text' name='title' value='" . $row_edit_post['title'] ."' required><br />";
     echo "<br />";
@@ -33,9 +33,9 @@
     echo "<textarea name='description' cols='60' rows='10' required>" . $row_edit_post['description'] . "</textarea><br />";
     echo "<br />";
     echo "<b>Bifoga bild:</b><br />";
-    echo "<input type='file' name='image' id='fileToUpload'><br />";
+    echo "<input type='file' name='file' id='fileToUpload'><br />";
     echo "<br />";
-    echo "<input type='submit' value='Publicera' />";
+    echo "<input type='submit' name='submit' value='Publicera' />";
     echo "<br />";
     echo "</form>";
 
