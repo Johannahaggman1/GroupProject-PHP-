@@ -1,15 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    
+
 <?php
-// kopplar indexen med database filen(som är kopplad till en local databas).
 include('Includes/database_connections.php');
 
-// variabel som säger att om "page" för sidan är satt eller inte och att scripten startar efter ?.
 $page = (isset($_GET['page']) ? $_GET['page'] : '');
 
-// om variabeln page skrivs ut kommer den att ta koden från login.php.
+
 if($page == "login"){
     include("Views/login.php");
 }
-// om variabeln inte kommer skrivs ut kommer den att ta koden från home.php.
+
 if(!$page){
     include("Views/home.php");
 }
@@ -25,13 +37,14 @@ if($page == "signup"){
 if($page == "home"){
     include("Views/home.php");
 }
-// om page är det samma som writepost finns och om role är satt samt att den är satt till admin...
-if($page == "writepost" && isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
-    // kommer den att skriva ut writepost.
+
+if($page == "writepost"){
     include("Views/writepost.php");
 }
 
-// skriver ut om login filen är sann. Gör sedan en länk för logga ut.
 echo (isset($_GET['login']) && $_GET['login'] == true ? "<center><a href='Includes/logout_functions.php'>Logga Ut</a></center>" : "");
 
 ?>
+
+</body>
+</html>

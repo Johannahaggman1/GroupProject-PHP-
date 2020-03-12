@@ -1,11 +1,15 @@
 <?php
     session_start();
 
-    // om användaren är admin
     if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
     
-    // kan den skriva post.
+
+    
+    echo "<h1 class='writepost-h1'>SKRIV INLÄGG</h1>";
+  
+    echo "<div class='writepost_wrapper'>";
     echo "<form method='POST' action='../Includes/writepost_functions.php' enctype='multipart/form-data'>";
+    echo "<div class='writepost-input_container'>";
     echo "<b>Titel:</b><br />";
     echo "<input type='text' name='title' required><br />";
     echo "<br />";
@@ -27,11 +31,15 @@
     echo "<br />";
     echo "<input type='submit' name='submit' value='Publicera' />";
     echo "<br />";
+    echo "</div>";
     echo "</form>";
+    echo "</div>";
+
+    echo "<a class='signup-backspace-btn' href='index.php'><i class='fas fa-backspace fa-3x' aria-hidden='true'></i></a>";
 }
 
-// error meddelande.
 else{
     echo "ajabaja inga hackerattacker här inte!";
 }
 ?>
+

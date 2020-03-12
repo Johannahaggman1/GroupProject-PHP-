@@ -1,0 +1,275 @@
+body{
+
+    width: 100%;
+    margin: 0; 
+
+/* BAKGRUND */
+    background: url("../uploads/background2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+/* TEXT*/
+    font-size: 16px;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+    font-weight: 550;
+
+/* FLEX INSTÄLLNINGAR*/ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+/* A-länk INSTÄLLNINGAR (hover effekten funkar ej!?!?)*/
+a {
+    text-decoration: none;
+    color: black;
+    transition: all .1s ease-in-out;
+}
+
+a:hover {
+    transform: scale(1.1);      
+}
+
+/*BUTTON INSTÄLLNINGAR*/ 
+button {
+   font-size: 20px; 
+   transition: all .1s ease-in-out;
+   border: none;
+   background-color: rgb(255, 255, 255);
+   margin: 1rem;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+p {
+    padding: 1rem;
+}
+
+input {
+    padding: 0.3rem;
+}
+
+
+.body_wrapper {
+    width: 80%;
+    height: 100%;
+    margin: 5rem 0 3rem 0;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 .2rem 1rem #0000003d;
+}
+
+.login-user-text {
+    padding: 0.5rem;
+}
+
+.header_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+     width: 100%;
+}
+
+.login-logout_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    
+}
+
+.btn-reg-login {
+    padding: 1rem;
+    margin: 0 2rem 0 2rem;
+    font-size: 20px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+
+/*CSS FÖR "BLOGGEN RUTAN*/
+.header-text{
+    box-shadow: 0 .12rem .5rem #0000003d;
+    padding: 2rem 4rem 2rem 4rem;
+    background-color: rgba(179, 173, 173, 0.479); 
+}
+
+h1 {
+    font-size: 54px;
+    letter-spacing: 16px;   
+}
+
+h6 {
+    font-size: 24px;
+    letter-spacing: 10px; 
+}
+
+/* INSTÄLLNINGAR AV INEHÅLLET PÅ FÖRSTASIDAN */
+.content_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+/* HÄR ÄR STYLING AV INLÄGGEN PÅ FÖRSTASIDAN */
+
+.post_wrapper {
+    box-shadow:  0 .2rem 1rem #0000003d;
+    background-color: rgba(179, 173, 173, 0.479); 
+    padding: 2rem 3rem 2rem 3rem;
+    font-size: 16px;
+    width: 80%;
+}
+
+.post_footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-description {
+    font-size: 16px;
+    padding: 1rem;
+    margin: 0.5rem 0 1rem 0;
+    background-color: rgba(241, 235, 235, 0.692);
+    box-shadow:  0 .2rem 1rem #0000003d;
+   line-height: 25px;
+   letter-spacing: 1px;
+}
+
+.post-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    background-color: rgba(241, 235, 235, 0.692);
+    padding: 0.1rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+    
+}
+
+.post_header {
+    font-size: 14px;
+   
+}
+
+img {
+    margin: 1rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+    width: 90%;
+}
+
+/* HÄR ÄR CSS FÖR LOG IN SIDAN */
+
+.login_container {
+    display: flex;
+    
+    
+    margin: 5rem;
+    padding: 2rem;
+    background: white;
+    flex-direction: column;
+    box-shadow:  0 .2rem 1rem #0000003d;
+
+}
+
+/* HÄR ÄR CSS FÖR SIGNUP SIDAN */
+
+.signup_wrapper {
+    margin-top: 5rem;
+}
+
+.signup-input_container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+    background: white;
+}
+
+/* .signup-buttum {
+    box-shadow:  0 .2rem 1rem #0000003d;
+
+} */
+
+.signup-h1 {
+    letter-spacing: 8px;
+    background-color: rgba(241, 235, 235, 0.692);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+}
+
+.signup-backspace-btn {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.hr {
+    border: 5px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+}
+
+/* HÄR ÄR CSS FÖR LOGIN SIDAN  */
+
+.login-btn {
+    padding: 0.5rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+}
+
+/* HÄR ÄR CSS FÖR WRITEPOST SIDAN  */
+
+/* .writepost-input_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+} */
+
+/*FOOTER*/
+
+.footer_wrapper {
+    height: 7rem;
+    display: flex;
+    font-size: 18px;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+.writepost_wrapper {
+    background-color: white;
+    padding: 1rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+    display: flex;
+
+    flex-direction: column;
+}
+
+.writepost-h1 {
+    letter-spacing: 8px;
+    margin-top: 2rem;
+    background-color: rgba(241, 235, 235, 0.692);
+    padding: 0.5rem;
+    box-shadow:  0 .2rem 1rem #0000003d;
+}
+
+/*
+KVAR ATT GÖRA: 
+
+- Hover effekt på a:länkarna 
+- CSS för writepost sidan 
+- CSS Kommentarfältet 
+- Förfina listan med inläggen på förstasidan, ex sträck emellan? 
+
+*/
+
