@@ -42,7 +42,7 @@ button {
    font-size: 20px; 
    transition: all .1s ease-in-out;
    border: none;
-   background-color: rgb(255, 255, 255);
+   background-color: transparent;
    margin: 1rem;
 }
 
@@ -60,23 +60,60 @@ input {
 
 
 .body_wrapper {
-    width: 80%;
     height: 100%;
-    margin: 5rem 0 3rem 0;
+    width: 38%;
+    margin: 2rem;
     background: rgb(255, 255, 255);
     box-shadow: 0 .2rem 1rem #0000003d;
+    box-shadow: 0 .12rem .5rem #0000003d;
+    background-color: rgba(179, 173, 173, 0.479); 
+    
+    
 }
+.body_wrapper #loginregister_btns{
+    display:flex;
+    flex-direction: row;
+    
+    
+   
+}
+
+.body_wrapper #loginregister_btns .btn-reg-login{
+   font-size: 20px; 
+   transition: all .1s ease-in-out;
+   border: none;
+   background-color: transparent;
+  
+}
+
 
 .login-user-text {
     padding: 0.5rem;
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.logout-btn {
+    padding: 0.7rem;
+    box-shadow: 0 .12rem .5rem #0000003d;
+    background-color: rgba(179, 173, 173, 0.479); 
+    
+
 }
 
 .header_wrapper {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: center;
      width: 100%;
+}
+
+.header_wrapper .button{
+    background-color: transparent;
+    border: none;
 }
 
 .login-logout_wrapper {
@@ -120,6 +157,9 @@ h6 {
     align-items: center;
     flex-direction: column;
     margin: 2rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 .2rem 1rem #0000003d;
+    width: 80%;
 }
 
 /* HÄR ÄR STYLING AV INLÄGGEN PÅ FÖRSTASIDAN */
@@ -135,6 +175,8 @@ h6 {
 .post_footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
 .post-description {
@@ -165,7 +207,8 @@ h6 {
 img {
     margin: 1rem;
     box-shadow:  0 .2rem 1rem #0000003d;
-    width: 90%;
+    max-width: 90%;
+    max-height: 90%;
 }
 
 /* HÄR ÄR CSS FÖR LOG IN SIDAN */
