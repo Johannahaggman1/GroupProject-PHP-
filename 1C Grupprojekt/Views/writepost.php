@@ -8,7 +8,7 @@
     echo "<h1 class='writepost-h1'>SKRIV INLÄGG</h1>";
   
     echo "<div class='writepost_wrapper'>";
-    echo "<form method='POST' action='../Includes/writepost_functions.php' enctype='multipart/form-data'>";
+    echo "<form method='POST' action='Includes/writepost_functions.php' enctype='multipart/form-data'>";
     echo "<div class='writepost-input_container'>";
     echo "<b>Titel:</b><br />";
     echo "<input type='text' name='title' required><br />";
